@@ -1,11 +1,11 @@
 {
-  "name": "@blazity/nest-file-fastify",
+  "name": "@x6tech/nest-file-fastify",
   "version": "1.0.0",
   "description": "fastify-multipart decorators for Nest.js",
   "license": "MIT",
   "main": "build/src/index.js",
   "types": "build/src/index.d.ts",
-  "homepage": "https://blazity.com/",
+  "homepage": "https://x6tech.com.br/",
   "files": [
     "build/src"
   ],
@@ -17,7 +17,8 @@
     "fastify-multipart",
     "upload",
     "file",
-    "blazity"
+    "blazity",
+    "x6tech"
   ],
   "publishConfig": {
     "access": "public"
