@@ -1,111 +1,34 @@
-<div align="left">
-  <h1> fastify-multipart for Nest.js</h1>
+<p align="center">
+  <img src="https://x6tech.com.br/wp-content/uploads/2023/09/logo-white-vectorized.png" alt="x6tech Logo" width="70"/>
+</p>
 
-[![Github Actions](https://img.shields.io/github/workflow/status/blazity/nest-file-fastify/Build?style=flat-square)](https://github.com/Blazity/nest-file-fastify)
-[![NPM](https://img.shields.io/npm/v/@blazity/nest-file-fastify.svg?style=flat-square)](https://www.npmjs.com/package/@blazity/nest-file-fastify)
-[![NPM](https://img.shields.io/npm/dm/@blazity/nest-file-fastify?style=flat-square)](https://www.npmjs.com/package/@blazity/nest-file-fastify)
 
-</div>
+# 🚀 @x6tech/nest-file-fastify
 
-This library adds decorators for [Nest.js](https://github.com/nestjs/nest) to support [@fastify/multipart](https://github.com/fastify/fastify-multipart). The API is very similar to the official Nest.js Express file decorators.
+[x6tech-nest-file-fastify](https://github.com/x6tech/nest-file-fastify) is a ✨ fork ✨ of the original [@blazity/nest-file-fastify](https://github.com/blazity/nest-file-fastify) package, a NestJS module for handling file uploads using Fastify. This fork has been created to address specific issues, improve compatibility, and add enhancements to the original package.
 
-## Installation
+## ✨ Features
 
-NPM
+- **Improved Compatibility**: 🔄 x6tech-nest-file-fastify includes improvements to ensure compatibility with the latest versions of NestJS and Fastify.
+
+- **Enhancements and Bug Fixes**: 🛠️ This fork incorporates enhancements and bug fixes to provide a more robust file upload solution.
+
+## 🙌 Acknowledgments
+
+We extend our gratitude to the original [@blazity/nest-file-fastify](https://github.com/blazity/nest-file-fastify) package and its author for creating a valuable NestJS module. The x6tech-nest-file-fastify fork builds upon their work and aims to provide an enhanced and well-maintained version.
+
+## 📦 Installation
+
+To install x6tech-nest-file-fastify, you can use npm:
 
 ```bash
-$ npm install @blazity/nest-file-fastify @fastify/multipart
+npm install @x6tech/nest-file-fastify
 ```
 
-Yarn
+## 🚀 Usage
+The usage of x6tech-nest-file-fastify remains similar to the original @blazity/nest-file-fastify package. For detailed documentation and examples, refer to the official documentation.
 
-```bash
-$ yarn add @blazity/nest-file-fastify @fastify/multipart
-```
+## 🤝 Contributions
+Contributions to x6tech-nest-file-fastify are welcome. If you encounter any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
 
-and register multpart plugin in your Nest.js application
-
-```typescript
-import fastyfyMultipart from '@fastify/multipart';
-
-...
-
-app.register(fastyfyMultipart);
-```
-
-## Docs
-
-### Single file
-
-```ts
-import { FileInterceptor, UploadedFile, MemoryStorageFile } from '@blazity/nest-file-fastify';
-
-@Post('upload')
-@UseInterceptors(FileInterceptor('file'))
-uploadFile(@UploadedFile() file: MemoryStorageFile) {
-  console.log(file);
-}
-```
-
-`FileInterceptor` arguments:
-
-- `fieldname`: string - name of the field that holds a file
-
-- `options`: optional object of type [`UploadOptions`](src/multipart/options.ts#L4)
-
-### Array of files
-
-```ts
-import { FilesInterceptor, UploadedFiles, MemoryStorageFile } from '@blazity/nest-file-fastify';
-
-@Post('upload')
-@UseInterceptors(FilesInterceptor('files'))
-uploadFile(@UploadedFiles() files: MemoryStorageFile[]) {
-  console.log(files);
-}
-```
-
-`FilesInterceptor` arguments:
-
-- `fieldname`: string - name of the field that holds files
-
-- `maxCount`: optional number - maximum number of files to accept
-
-- `options`: optional object of type [`UploadOptions`](src/multipart/options.ts#L4)
-
-### Multiple files
-
-```ts
-import { FileFieldsInterceptor, UploadedFiles, MemoryStorageFile } from '@blazity/nest-file-fastify';
-
-@Post('upload')
-@UseInterceptors(FileFieldsInterceptor([
-  { name: 'avatar', maxCount: 1 },
-  { name: 'background', maxCount: 1 },
-]))
-uploadFile(@UploadedFiles() files: { avatar?: MemoryStorageFile[], background?: MemoryStorageFile[] }) {
-  console.log(files);
-}
-```
-
-`FileFieldsInterceptor` arguments:
-
-- `uploadFields`: object of type [`UploadField`](src/multipart/handlers/file-fields.ts#L10)
-
-- `options`: optional object of type [`UploadOptions`](src/multipart/options.ts#L4)
-
-### Any files
-
-```ts
-import { AnyFilesInterceptor, UploadedFiles, MemoryStorageFile } from '@blazity/nest-file-fastify';
-
-@Post('upload')
-@UseInterceptors(AnyFilesInterceptor()
-uploadFile(@UploadedFiles() files: MemoryStorageFile[]) {
-  console.log(files);
-}
-```
-
-`AnyFilesInterceptor` arguments:
-
-- `options`: optional object of type [`UploadOptions`](src/multipart/options.ts#L4)
+Happy file uploading! 📤
